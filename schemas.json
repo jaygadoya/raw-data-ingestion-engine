@@ -1,0 +1,94 @@
+{
+    "jobName" : "RawLayer-Ingestion",
+    "fileType" : "CSV",
+    "delimiter" : "|",
+    "header" : true,
+    "filePath" : "file location for that format",
+    "tableName" : ["tableName0", "tableName1", "tableName2"],
+    "fileField0" : [
+        {
+            "name": "id",
+            "dataType": "int",
+            "nullable": true
+        },
+        {
+            "name": "name",
+            "dataType": "string",
+            "nullable": true
+        },
+        {
+            "name": "roll_number",
+            "dataType": "int",
+            "nullable": true
+        }
+    ],
+    "fileField1" : [
+        {
+            "name": "id",
+            "dataType": "int",
+            "nullable": true
+        },
+        {
+            "name": "name",
+            "dataType": "string",
+            "nullable": true
+        },
+        {
+            "name": "roll_number",
+            "dataType": "int",
+            "nullable": true
+        }
+    ],
+    "fileField2" : [
+        {
+            "name": "id",
+            "dataType": "int",
+            "nullable": true
+        },
+        {
+            "name": "name",
+            "dataType": "string",
+            "nullable": true
+        },
+        {
+            "name": "roll_number",
+            "dataType": "int",
+            "nullable": true
+        }
+    ],
+    "dataProfiling" : [
+        {
+            "name" : "id",
+            "statisticalInference" : ["min","max","median"],
+            "qualityDeviations" : [
+                {
+                    "nullOverall": "2%",
+                    "nullPerFile" : "3%"
+                }
+            ]
+            
+        },
+        {
+            "name" : "name",
+            "statisticalInference" : ["min","max","median"],
+            "qualityDeviations" : [
+                {
+                    "nullOverall": "2%",
+                    "nullPerFile" : "3%"
+                }
+            ]
+            
+        },
+        {
+            "name" : "roll_number",
+            "statisticalInference" : ["min","max","median"],
+            "qualityDeviations" : [
+                {
+                    "nullOverall": "2%",
+                    "nullPerFile" : "3%"
+                }
+            ]
+            
+        }
+    ]
+}
