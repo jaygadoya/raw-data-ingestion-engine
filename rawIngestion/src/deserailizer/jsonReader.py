@@ -1,10 +1,16 @@
 import json
 from pyspark.sql.types import StructField, StructType, StringType, IntegerType, MapType, DateType
+
+# This class is to read the JSON Config file from the Path.
 class JsonReader:
+    '''The class contains reader function to perform deserializer operation on the config file.
+       The config file will contain all the metadata related information for the tables and files.
+       return '''
+    
     def __init__():
         print("Getting the Json Reader")
 
-    def reader(filePath):
+    def reader(filePath) -> dict:
         print("Reading in progress...")
         with open(filePath) as f:
             dictSchema = json.load(f)

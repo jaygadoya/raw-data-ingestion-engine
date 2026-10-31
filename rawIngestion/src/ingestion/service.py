@@ -5,7 +5,7 @@ import sys
 class Etl:
     def __init__(ss:SparkSession):
         print("Inside ETL Class...")
-    def doETL(ingestDate,file):
+    def doETL(self,ingestDate,file):
         try:
             print("Implementing Code...")
             schm = JsonReader.reader("C:\\data_engineering\\schemas.json")
