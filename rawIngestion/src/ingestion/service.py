@@ -5,17 +5,14 @@ import sys
 class Etl:
     def __init__(ss:SparkSession):
         print("Inside ETL Class...")
-    def doETL(self,ingestDate,file):
-        try:
-            print("Implementing Code...")
-            schm = JsonReader.reader("C:\\data_engineering\\schemas.json")
-            
-
-
-        except:
-            print("Unable to run the code.., it failed...")
-
-        finally:
-            print("Closing all the connections...")
+    def doETL(self,ingestDate: str,file: str,schm: dict) -> None:
+        # try:
+        #     print("Implementing Code...")
+        #     schm = JsonReader.reader("C:\\data_engineering\\schemas.json")
+        # except:
+        #     print("Unable to run the code.., it failed...")
+        # finally:
+        #     print("Closing all the connections...")
+        pass
 
     
