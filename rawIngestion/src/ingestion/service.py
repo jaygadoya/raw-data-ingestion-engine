@@ -9,8 +9,8 @@ class Etl:
         try:
             print("Implementing Code...")
             schm = JsonReader.reader("C:\\data_engineering\\schemas.json")
+            print("The scehma is read and pointed to schm variable...")
         except:
             print("Unable to run the code.., it failed...")
         finally:
             print("Closing all the connections...")
-    
