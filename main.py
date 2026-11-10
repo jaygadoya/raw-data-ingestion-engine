@@ -3,12 +3,21 @@ from rawIngestion.src.deserailizer.jsonReader import *
 from pyspark.sql import SparkSession
 from rawIngestion.src.utils import utility
 import argparse
+import logging
 fileDate = "fdsafs"
 file_path = "C:\\data_engineering\\Fresh\\raw-data-ingestion-engine"
 parser = argparse.ArgumentParser()
 parser.add_argument("json_file_path",type=str)
 args = parser.parse_args()
 fileList = utility.get_file_list_from_path(file_path)
+
+logging.basicConfig(
+    level = logging.INFO
+)
+
+logger = logging.getLogger(__name__)
+
+
 
 etl = Etl()
 
