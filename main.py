@@ -4,19 +4,21 @@ from pyspark.sql import SparkSession
 from rawIngestion.src.utils import utility
 import argparse
 import logging
+from rawIngestion.src.spark import sparkSession
 fileDate = "2026-11-11"
 parser = argparse.ArgumentParser()
 parser.add_argument("json_file_path",type=str)
 args = parser.parse_args()
+schm = JsonReader.reader(args.json_file_path)
+spark = sparkSession.getSparkSession(schm["jobName"])
 
 
-
-etl = Etl()
+etl = Etl(spark)
 
 if __name__ == "__main__":
     try:
         print("Implementing Code...")
-        schm = JsonReader.reader(args.json_file_path)
+        
         print("The job name is: ")
         print(schm["jobName"])
         file_path = schm["filePath"]

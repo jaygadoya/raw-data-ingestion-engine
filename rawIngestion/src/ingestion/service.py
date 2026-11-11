@@ -13,7 +13,9 @@ class Etl:
             for jsSchm in schm["fileField"]:
                 fieldList.append(StructField(jsSchm["name"],utility.jsonToSparkType(jsSchm["dataType"]),jsSchm["nullable"]))
             fileSchema = StructType(fieldList)
-            print(f"The fileschema is: {fileSchema}")            
+            print(f"The fileschema is: {fileSchema}")
+            
+                      
         except:
             raise Exception
         finally:
