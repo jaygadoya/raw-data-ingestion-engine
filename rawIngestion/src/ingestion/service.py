@@ -1,16 +1,20 @@
-from rawIngestion.src.deserailizer.jsonReader import *
 from pyspark.sql import SparkSession
 from pyspark.sql import *
 import sys
+from pyspark.sql.types import StructType, StructField
+from ..utils import utility
 class Etl:
     def __init__(ss:SparkSession):
         print("Inside ETL Class...")
     def doETL(self,ingestDate: str,file: str,schm: dict) -> None:
         try:
             print("Implementing Code...")
-            schm = JsonReader.reader("C:\\data_engineering\\schemas.json")
-            print("The scehma is read and pointed to schm variable...")
+            fieldList = []
+            for jsSchm in schm["fileField"]:
+                fieldList.append(StructField(jsSchm["name"],utility.jsonToSparkType(jsSchm["dataType"]),jsSchm["nullable"]))
+            fileSchema = StructType(fieldList)
+            print(f"The fileschema is: {fileSchema}")            
         except:
-            print("Unable to run the code.., it failed...")
+            raise Exception
         finally:
             print("Closing all the connections...")

@@ -3,9 +3,11 @@
     "fileType" : "CSV",
     "delimiter" : "|",
     "header" : true,
-    "filePath" : "file location for that format",
+    "filePath" : "C:\\data_engineering\\ingest\\",
+    "filePattern" : "audit_",
+    "schemaName": "integration",
     "tableName" : "tableName0",
-    "fileField0" : [
+    "fileField" : [
         {
             "name": "id",
             "dataType": "int",

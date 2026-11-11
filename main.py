@@ -4,18 +4,10 @@ from pyspark.sql import SparkSession
 from rawIngestion.src.utils import utility
 import argparse
 import logging
-fileDate = "fdsafs"
-file_path = "C:\\data_engineering\\Fresh\\raw-data-ingestion-engine"
+fileDate = "2026-11-11"
 parser = argparse.ArgumentParser()
 parser.add_argument("json_file_path",type=str)
 args = parser.parse_args()
-fileList = utility.get_file_list_from_path(file_path)
-
-logging.basicConfig(
-    level = logging.INFO
-)
-
-logger = logging.getLogger(__name__)
 
 
 
@@ -27,12 +19,13 @@ if __name__ == "__main__":
         schm = JsonReader.reader(args.json_file_path)
         print("The job name is: ")
         print(schm["jobName"])
-        print("Unable to run the code.., it failed...")
-
-        print("Closing all the connections...")
+        file_path = schm["filePath"]
+        # file_pattern = schm["filePattern"]
+        fileList = utility.get_file_list_from_path(file_path,"audit_")
+        print(f"The file list is: {fileList}")
         if not fileList:
             print("Aborting the job as no files are identified...")
-            no_file_exception = "did not find any file in the path"
+            no_file_exception = "Did not find any file in the path"
             raise no_file_exception
         else:
             for file in fileList:
@@ -41,7 +34,7 @@ if __name__ == "__main__":
                 print("Speaking from the main class...")
 
     except:
-        print("Error")
+        raise Exception
 
     finally:
         print("Closing all connections...")
