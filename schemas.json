@@ -1,12 +1,17 @@
 {
     "jobName" : "RawLayer-Ingestion",
-    "fileType" : "CSV",
-    "delimiter" : "|",
-    "header" : true,
     "filePath" : "C:\\data_engineering\\ingest\\",
     "filePattern" : "audit_",
     "schemaName": "integration",
     "tableName" : "tableName0",
+    "fileOptions":[
+        {
+         "fileType" : "CSV",
+         "delimiter" : "|",
+         "header" : true,
+         "inferSchema" : false
+        }
+    ],
     "fileField" : [
         {
             "name": "id",
