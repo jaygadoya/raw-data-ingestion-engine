@@ -14,7 +14,11 @@ class Etl:
                 fieldList.append(StructField(jsSchm["name"],utility.jsonToSparkType(jsSchm["dataType"]),jsSchm["nullable"]))
             fileSchema = StructType(fieldList)
             print(f"The fileschema is: {fileSchema}")
+            fileTypeMapper = {"csv":"csvFile",
+                              "json":"jsonFile",
+                              "xlsx":"xlsxFile"}
             
+
                       
         except:
             raise Exception
