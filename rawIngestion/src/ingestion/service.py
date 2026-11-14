@@ -19,6 +19,7 @@ class Etl:
             fileTypeMapper = {"csv":CSVReader.CsvReader(),
                               "json": JSONReader.JsonReader(),
                               "xlsx":XLSXReader.XlsxReader()}
+            df = fileTypeMapper[schm["fileType"]].read(schm["fileOptions"],schm["filePath"])
             
 
                       
