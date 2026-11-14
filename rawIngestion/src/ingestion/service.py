@@ -3,6 +3,7 @@ from pyspark.sql import *
 import sys
 from pyspark.sql.types import StructType, StructField
 from ..utils import utility
+from rawIngestion.src.sparkRead import CSVReader, JSONReader, XLSXReader
 class Etl:
     def __init__(ss:SparkSession):
         print("Inside ETL Class...")
@@ -14,9 +15,10 @@ class Etl:
                 fieldList.append(StructField(jsSchm["name"],utility.jsonToSparkType(jsSchm["dataType"]),jsSchm["nullable"]))
             fileSchema = StructType(fieldList)
             print(f"The fileschema is: {fileSchema}")
-            fileTypeMapper = {"csv":"csvFile",
-                              "json":"jsonFile",
-                              "xlsx":"xlsxFile"}
+            # Creating an instance based on the file type.
+            fileTypeMapper = {"csv":CSVReader.CsvReader(),
+                              "json": JSONReader.JsonReader(),
+                              "xlsx":XLSXReader.XlsxReader()}
             
 
                       
