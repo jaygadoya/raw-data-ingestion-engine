@@ -9,7 +9,8 @@
          "fileType" : "CSV",
          "delimiter" : "|",
          "header" : true,
-         "inferSchema" : false
+         "inferSchema" : false,
+         "multiLine" : false
         }
     ],
     "fileField" : [
